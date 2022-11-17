@@ -1,0 +1,35 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://t3.ftcdn.net/jpg/03/74/28/58/360_F_374285858_KzJ88FysqJ79AhyNPW2lqnBtsRTokuav.jpg);">
+  <div class="container text-center">
+    <h1>Save any kind of movies!</h1>
+    <p>Classic</p>
+  </div>
+</div>
+<div class="container mt-5">
+  <h1>The list movies:</h1>
+  <div class="cards">
+    <% @list.movies.each do |movie| %>
+  <div class="card-trip">
+    <img src="<%= movie.poster_url %>" />
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= movie.title %></h2>
+        <p><%= movie.overview %></p>
+        <div>
+          <span class="card-trip-pricing mt-2">Rating : <%= movie.rating %></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<% end %>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h1>Create a new bookmark :</h1>
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.submit %>
+  <% end %>
+</div>

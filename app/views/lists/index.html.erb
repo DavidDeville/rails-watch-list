@@ -1,0 +1,29 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://t3.ftcdn.net/jpg/03/74/28/58/360_F_374285858_KzJ88FysqJ79AhyNPW2lqnBtsRTokuav.jpg);">
+  <div class="container text-center">
+    <h1>Save any kind of movies!</h1>
+    <p>Classic</p>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="d-flex justify-content-between">
+    <h1>Test</h1>
+    <div>
+      <a href="#" class="btn btn-primary">bouton</a>
+    </div>
+  </div>
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+          <%= list.name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <h1>Create a new list:</h1>
+
+  <%= simple_form_for(@list) do |f| %>
+    <%= f.input :name %>
+    <%= f.submit %>
+  <% end %>
+</div>
