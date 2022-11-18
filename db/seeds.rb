@@ -8,6 +8,8 @@
 require 'open-uri'
 require 'json'
 
+Bookmark.destroy_all
+
 url = URI.open("https://tmdb.lewagon.com/movie/top_rated").read
 
 data = JSON.parse(url)
