@@ -30,6 +30,9 @@ gem "jbuilder"
 # Dot Env
 gem "dotenv-rails", groups: [:development, :test]
 
+# Cloudinary
+gem "cloudinary"
+
 # Gem related to Front
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
