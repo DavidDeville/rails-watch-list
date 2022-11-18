@@ -27,6 +27,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Dot Env
+gem "dotenv-rails", groups: [:development, :test]
+
 # Gem related to Front
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
