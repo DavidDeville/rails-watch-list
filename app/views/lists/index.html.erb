@@ -4,21 +4,33 @@
     <p>Classic</p>
   </div>
 </div>
-<div class="container mt-5">
-  <div class="cards">
-    <% @lists.each do |list| %>
-      <%= link_to list_path(list) do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key, height: 200, crop: :fill %>)">
-          <%= list.name %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <h1>Create a new list:</h1>
 
-  <%= simple_form_for(@list) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit %>
-  <% end %>
+<div data-controller="form" class="mb-5">
+  <div class="container mt-5 mb-3">
+    <div class="cards mb-3">
+      <%= link_to "/lists", data: { action: 'click->form#test' } do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://t3.ftcdn.net/jpg/03/74/28/58/360_F_374285858_KzJ88FysqJ79AhyNPW2lqnBtsRTokuav.jpg)">
+                Ajouter une liste +
+          </div>
+      <% end %>
+      <% @lists.each do |list| %>
+        <%= link_to list_path(list) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key, height: 200, crop: :fill, :quality => 70 %>)">
+            <%= list.name %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="container mt-5 d-none" data-form-target="form">
+    <div class="form-resize">
+      <h1>Create a new list:</h1>
+      <%= simple_form_for(@list) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
 </div>

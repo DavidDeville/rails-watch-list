@@ -1,11 +1,13 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.photo.key, height: 300, width: 400, crop: :fill %>');">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.photo.key, crop: :fill %>');">
   <div class="container text-center">
     <h1>Save any kind of movies!</h1>
     <p>Classic</p>
   </div>
 </div>
 <div class="container mt-5">
-  <h1>The list movies:</h1>
+  <% if @list.movies.count > 0 %>
+    <h1>The list movies:</h1>
+  <% end %>
   <div class="cards">
     <% @list.movies.each do |movie| %>
   <div class="card-trip">
@@ -25,7 +27,7 @@
   </div>
 </div>
 
-<div class="container mt-5">
+<div class="container">
   <h1>Create a new bookmark :</h1>
   <%= simple_form_for [@list, @bookmark] do |f| %>
     <%= f.input :comment %>
