@@ -3,7 +3,7 @@ class ListsController < ApplicationController
   before_action :set_list, only: ['index']
   before_action :set_bookmark, only: ['show']
 
-  # Display all list
+  # Display all lists
   def index
     @lists = List.all
   end
